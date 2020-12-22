@@ -1,0 +1,79 @@
+.main{
+    margin:0;
+    padding:0;
+    color:rgb(46, 46, 46);
+    background: rgb(255, 255, 255);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row; 
+    
+}
+
+.params1{
+    margin:0;
+    padding:15;
+    color:rgb(46, 46, 46);
+    background: white;
+    width: 15%;
+    height: 100%;
+    
+}
+
+.params2{
+    margin:0;
+    padding:0;
+    border:3px red;
+    color:blue;
+    background: orange;
+    width: 15%;
+    height: 100%;
+    
+}
+
+.graphs{
+    margin:0;
+    padding:0;
+    border:3px red;
+    color:blue;
+    background: rgb(39, 158, 255);
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.graphsSmall{
+
+    margin:0;
+    padding:1;
+    color:rgb(255, 255, 255);
+    background:rgb(87, 87, 87);
+    height: 5%;
+
+}
+
+.graphsMedium{
+    margin:0;
+    padding:1;
+    color:rgb(0, 0, 0);
+    background:rgb(255, 255, 255);
+    height: 45%;
+}
+
+.paramsOut{
+    margin:0;
+    padding:0;
+    border:3px red;
+    color:blue;
+    background: rgb(255, 251, 39);
+    width: 10%;
+    height: 100%;
+    
+}
+
+.test{
+    color:#52af77
+}
+
