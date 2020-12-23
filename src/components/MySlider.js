@@ -24,9 +24,10 @@ class MySlider extends React.Component{
 
     onChange = (e,val) => { 
         this.props.onChange(val)
-        console.log("debug")
-        console.log(e)
-        console.log(val)
+
+        
+        //console.log(e)
+        //console.log(val)
 
 
         this.setState(prevState => {

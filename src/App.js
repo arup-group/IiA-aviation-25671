@@ -1,10 +1,5 @@
 import React from "react";
-import Stylesheets from "./components/Stylesheet";
 import "./components/myStyles.css"
-import ContinuousSlider from "./components/ContinuousSlider";
-import { Button, Input } from "@material-ui/core";
-import Slider from "@material-ui/core/Slider";
-import InputBase from "@material-ui/core/InputBase";
 import MySlider from "./components/MySlider";
 import inputs1 from "./files/InputParams" 
 import inputs2 from "./files/InputParams2" 
@@ -61,14 +56,21 @@ class App extends React.Component {
         step={item.step}
         onChange={(value) => this.handleChange(item.name, value)}
         /> 
-    :  <h1>Button</h1> )
+    :  
+    <ControlledOpenSelect 
+    name={item.name}
+    value={item.value}
+    onChange={(value) => this.handleChange(item.name, value)}
+    />
+     )
 
     return(myArray)
 
   }
 
-  
 
+
+  
   ONCLICK() {
     console.log(this.state.inputParams);
   }
@@ -92,7 +94,7 @@ class App extends React.Component {
                     <ControlledOpenSelect 
                     name="Security Lanes Order "
                     value="false" 
-                    onChange = {(event) => console.log("something")}
+                    onChange = {(value) => console.log("debug", value)}
                     />  
                 </ul>
                 <h1 className="graphsMedium">medium</h1>

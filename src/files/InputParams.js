@@ -49,17 +49,17 @@ const inputs1 = [
     },
     {
         name: "Security Lanes Offset",
-        value: "false",
+        value: false,
         type:"button"
     },
     {
         name: "Shared Body Scanner",
-        value: "false",
+        value: false,
         type:"button"
     },
     {
         name: "Security Lanes Order",
-        value: "true",
+        value: true,
         type:"button"
     },
     {

@@ -15,8 +15,9 @@ function ControlledOpenSelect(props) {
 
   const name = props.name
 
-  const onChange = (event) => {
+  const handleChange = (event) => {
     setAge(event.target.value);
+    props.onChange(event.target.value);
     
     console.log(props.name)
     console.log(event.target.value)
@@ -45,7 +46,7 @@ function ControlledOpenSelect(props) {
           onClose={handleClose}
           onOpen={handleOpen}
           value={age}
-          onChange={onChange}
+          onChange={handleChange}
         >
           <MenuItem value={true}>true</MenuItem>
           <MenuItem value={false}>false</MenuItem>
