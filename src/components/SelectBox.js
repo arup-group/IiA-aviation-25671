@@ -1,16 +1,13 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import Typography from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import Grid from '@material-ui/core/Button';
+
 
 
 
 function ControlledOpenSelect(props) {
   
-  const [age, setAge] = React.useState(props.value);
+  const [value, setAge] = React.useState(props.value);
   const [open, setOpen] = React.useState(false);
 
   const name = props.name
@@ -19,8 +16,8 @@ function ControlledOpenSelect(props) {
     setAge(event.target.value);
     props.onChange(event.target.value);
     
-    console.log(props.name)
-    console.log(event.target.value)
+    //console.log(props.name)
+    //console.log(event.target.value)
   };
 
   const handleClose = () => {
@@ -34,28 +31,58 @@ function ControlledOpenSelect(props) {
   
 
   return (
-    <div>
-      
-        <div>{name}</div>
+    <div>  
         <Select
           labelId="demo-controlled-open-select-label"
           id="demo-controlled-open-select"
           open={open}
           onClose={handleClose}
           onOpen={handleOpen}
-          value={age}
+          value={value}
           onChange={handleChange}
         >
           <MenuItem value={true}>true</MenuItem>
           <MenuItem value={false}>false</MenuItem>
         </Select>
-        <h1></h1>
     </div>
   );
 }
 
+class SelectBox extends React.Component {
+    constructor(){
+        super()
+        this.state = {
+        }
+    }
+
+    onChange = (val) => { 
+        this.props.onChange(val)
+        
+        //console.log("debugs", val)
+        this.setState(prevState => {
+        return {
+            value: val,
+        }
+    })
+}
+    
+
+    render(){
+
+        return (
+            <div>
+            <ControlledOpenSelect value={this.props.value} onChange={(value) => this.onChange(value)}/>
+            <h1></h1>
+            </div>
+
+        )
+    }
+
+}
+
+export default SelectBox
 
 
 
 
-export default ControlledOpenSelect
+

@@ -1,6 +1,7 @@
 const inputs1 = [
 	{
-		name: "Provided units",
+        name: "Provided units",
+        key:"prov_units",
         value: 6,
         max: 50,
         min: 1,
@@ -8,7 +9,8 @@ const inputs1 = [
         type:"slider"
 	},
 	{
-		name: "PHP",
+        name: "PHP",
+        key:"php",
         value: 1000,
         max: 5000,
         min: 0,
@@ -16,7 +18,8 @@ const inputs1 = [
         type:"slider"
 	},
 	{
-		name: "PK30min",
+        name: "PK30min",
+        key:"pf30min",
         value: 0.75,
         max: 1.0,
         min: 0.5,
@@ -24,7 +27,8 @@ const inputs1 = [
         type:"slider"
 	},
 	{
-		name: "PT",
+        name: "PT",
+        key:"pt",
         value: 15,
         max: 30,
         min: 8,
@@ -32,7 +36,8 @@ const inputs1 = [
         type:"slider"
 	},
 	{
-		name: "MQT",
+        name: "MQT",
+        key:"mqt",
         value: 5,
         max: 10,
         min: 0,
@@ -40,7 +45,8 @@ const inputs1 = [
         type:"slider"
 	},
 	{
-		name: "SP",
+        name: "SP",
+        key:"sp",
         value: 1.5,
         max: 5.0,
         min: 0.5,
@@ -48,22 +54,8 @@ const inputs1 = [
         type:"slider"
     },
     {
-        name: "Security Lanes Offset",
-        value: false,
-        type:"button"
-    },
-    {
-        name: "Shared Body Scanner",
-        value: false,
-        type:"button"
-    },
-    {
-        name: "Security Lanes Order",
-        value: true,
-        type:"button"
-    },
-    {
-		name: "X Spacing",
+        name: "X Spacing",
+        key:"x_spacing",
         value: 6,
         max: 15,
         min: 5,
@@ -71,7 +63,8 @@ const inputs1 = [
         type:"slider"
     },
     {
-		name: "Y Spacing",
+        name: "Y Spacing",
+        key:"y_spacing",
         value: 0,
         max: 15,
         min: 5,
@@ -79,13 +72,33 @@ const inputs1 = [
         type:"slider"
     },
     {
-		name: "Z Spacing",
+        name: "Z Spacing",
+        key:"z_spacing",
         value: 0,
         max: 15,
         min: 5,
         step: 1,
         type:"slider"
+    },
+    {
+        name: "Security Lanes Offset",
+        key:"sec_layout_offset",
+        value: false,
+        type:"button"
+    },
+    {
+        name: "Shared Body Scanner",
+        key:"shared_body_scanner",
+        value: false,
+        type:"button"
+    },
+    {
+        name: "Security Lanes Order",
+        key:"security_lanes_order",
+        value: true,
+        type:"button"
     }
+
 ]
 
 export default inputs1

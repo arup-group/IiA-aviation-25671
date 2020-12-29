@@ -29,7 +29,6 @@ class MySlider extends React.Component{
         //console.log(e)
         //console.log(val)
 
-
         this.setState(prevState => {
         return {
             value: val,
@@ -41,10 +40,6 @@ class MySlider extends React.Component{
 
     
 
-    componentDidUpdate() {
-        //this.props.onChange(this.state)
-        //console.log("isupdating")
-    }
 
 
 

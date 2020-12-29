@@ -3,13 +3,19 @@ import "./components/myStyles.css"
 import MySlider from "./components/MySlider";
 import inputs1 from "./files/InputParams" 
 import inputs2 from "./files/InputParams2" 
-import ControlledOpenSelect from "./components/SelectElement"
+import MySwitch from "./components/MySwitch"
+import ParametersVis from "./components/ParametersVis"
+import dummyResponse from "./files/dummyResponse.json" 
+import Visualization from "./components/Visualization"
+
 
 class App extends React.Component {
   constructor() {
     super();
+    let outParams = dummyResponse
     this.state = {
         inputParams: {},
+        outParams
     };
 
     
@@ -22,8 +28,8 @@ class App extends React.Component {
   componentDidMount() { // Define the default input values in state
       console.log("MOUNTED")
       const inputParams = {}
-      inputs1.forEach((item) => {inputParams[item.name] = item.value})
-      inputs2.forEach((item) => {inputParams[item.name] = item.value})
+      inputs1.forEach((item) => {inputParams[item.key] = item.value})
+      inputs2.forEach((item) => {inputParams[item.key] = item.value})
 
       this.setState({inputParams})
 
@@ -41,7 +47,7 @@ class App extends React.Component {
     this.setState({
         inputParams, // same as params: params
     });
-    console.log(this.state.inputParams)
+    console.log(this.state)
   };
 
   inputArray(json) {
@@ -54,13 +60,13 @@ class App extends React.Component {
         min={item.min} 
         max={item.max}
         step={item.step}
-        onChange={(value) => this.handleChange(item.name, value)}
+        onChange={(value) => this.handleChange(item.key, value)}
         /> 
     :  
-    <ControlledOpenSelect 
+    <MySwitch 
     name={item.name}
     value={item.value}
-    onChange={(value) => this.handleChange(item.name, value)}
+    onChange={(value) => this.handleChange(item.key, value)}
     />
      )
 
@@ -84,25 +90,24 @@ class App extends React.Component {
       
         <div className="main">
             <ul className="params1">
+                <h4>Input layer 1</h4>
                 {uiInputs1}
             </ul>
             <ul className="params1">
+                <h4>Input layer 2</h4>
                 {uiInputs2}
             </ul>
             <ul className="graphs">
                 <ul className="graphsSmall">
-                    <ControlledOpenSelect 
-                    name="Security Lanes Order "
-                    value="false" 
-                    onChange = {(value) => console.log("debug", value)}
-                    />  
+                  Small
                 </ul>
-                <h1 className="graphsMedium">medium</h1>
-                <h1 className="graphsSmall">small</h1>
-                <h1 className="graphsMedium">medium</h1>
+                <ul className="graphsMedium" id='visContainer'>
+                                    
+                  </ul>
+                <ul className="graphsSmall">small</ul>
+                <ul className="graphsMedium">medium</ul>
             </ul>
-            <ul className="paramsOut">Graphs</ul>
-            <ul className="paramsOut">Graphs</ul>
+                <ParametersVis data={this.state.outParams.params} graphData={'graph data'}/>
         </div>
      
 

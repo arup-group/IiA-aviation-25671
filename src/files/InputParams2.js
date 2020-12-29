@@ -1,6 +1,7 @@
 const inputs2 = [
 	{
-		name: "Baggage Conveyor Width",
+        name: "Baggage Conveyor Width",
+        key:"baggage_conv_width",
         value: 2,
         max: 5,
         min: 2,
@@ -8,7 +9,8 @@ const inputs2 = [
         type:"slider"
     },
     {
-		name: "Baggage Conveyor Length",
+        name: "Baggage Conveyor Length",
+        key:"baggage_conv_length",
         value: 18,
         max: 20,
         min: 10,
@@ -16,7 +18,8 @@ const inputs2 = [
         type:"slider"
 	}, 
 	{
-		name: "Start location baggage scanner",
+        name: "Start location baggage scanner",
+        key:"start_loc_baggage_scanner",
         value: 0.75,
         max: 1.0,
         min: 0.5,
@@ -24,7 +27,8 @@ const inputs2 = [
         type:"slider"
 	},
 	{
-		name: "Baggage scanner width",
+        name: "Baggage scanner width",
+        key:"baggage_scanner_width",
         value: 4,
         max: 8,
         min: 3,
@@ -32,7 +36,8 @@ const inputs2 = [
         type:"slider"
 	},
 	{
-		name: "Baggage scanner length",
+        name: "Baggage scanner length",
+        key:"baggage_scanner_length",
         value: 5,
         max: 8,
         min: 3,
@@ -40,7 +45,8 @@ const inputs2 = [
         type:"slider"
 	},
 	{
-		name: "Distance for staff",
+        name: "Distance for staff",
+        key:"distance_staff",
         value: 0.5,
         max: 10.0,
         min: 0.5,
@@ -48,7 +54,8 @@ const inputs2 = [
         type:"slider"
     },
     {
-		name: "Staff seat radius",
+        name: "Staff seat radius",
+        key:"staff_seat_radius",
         value: 0.8,
         max: 10.0,
         min: 0.5,
@@ -56,7 +63,8 @@ const inputs2 = [
         type:"slider"
     },
     {
-		name: "Body scanner radius",
+        name: "Body scanner radius",
+        key:"body_scanner_radius",
         value: 1.0,
         max: 10.0,
         min: 0.5,
@@ -64,7 +72,8 @@ const inputs2 = [
         type:"slider"
     },
     {
-		name: "Manteinance distance",
+        name: "Manteinance distance",
+        key:"maintenance_dist",
         value: 0.5,
         max: 10.0,
         min: 0.5,
@@ -72,7 +81,8 @@ const inputs2 = [
         type:"slider"
     },
     {
-		name: "Metal detector depth",
+        name: "Metal detector depth",
+        key:"metal_det_depth",
         value: 0.3,
         max: 10.0,
         min: 0.5,
@@ -80,7 +90,8 @@ const inputs2 = [
         type:"slider"
     },
     {
-		name: "Distance in front of queue",
+        name: "Distance in front of queue",
+        key:"dist_front_queue",
         value: 3.0,
         max: 10.0,
         min: 0.5,
@@ -88,7 +99,8 @@ const inputs2 = [
         type:"slider"
     },
     {
-		name: "Queue width",
+        name: "Queue width",
+        key:"queue_witdh",
         value: 1.5,
         max: 10.0,
         min: 0.5,
