@@ -6,33 +6,34 @@ import inputs2 from "./files/InputParams2"
 import MySwitch from "./components/MySwitch"
 import ParametersVis from "./components/ParametersVis"
 import dummyResponse from "./files/dummyResponse.json" 
-import Visualization from "./components/Visualization"
-
+import DrawChart from "./components/Chart"
 
 class App extends React.Component {
   constructor() {
     super();
-    let outParams = dummyResponse
+
+
+    let outParams = dummyResponse // this is the dummy data that should come from Rhino COMPUTE
+
+
+
     this.state = {
         inputParams: {},
-        outParams
+        outParams,
+        graphData : {provided: null, required: null, name: null}
     };
 
-    
-
     this.handleChange = this.handleChange.bind(this);
-    this.ONCLICK = this.ONCLICK.bind(this);
+    this.handleUpdateChart = this.handleUpdateChart.bind(this);
+
   }
 
 
   componentDidMount() { // Define the default input values in state
-      console.log("MOUNTED")
       const inputParams = {}
       inputs1.forEach((item) => {inputParams[item.key] = item.value})
       inputs2.forEach((item) => {inputParams[item.key] = item.value})
-
       this.setState({inputParams})
-
   }
 
 
@@ -47,8 +48,20 @@ class App extends React.Component {
     this.setState({
         inputParams, // same as params: params
     });
-    console.log(this.state)
   };
+
+  handleUpdateChart = (value) => {    
+    const chartSelected = this.getChartValues(value)
+    this.setState({graphData: { provided : chartSelected.prov, required: chartSelected.req, name: chartSelected.name}})    
+  };
+
+  getChartValues  = (chartName) =>{
+    const result = this.state.outParams.graphs.filter(obj => {
+      return obj.title === chartName
+    })  
+    return {req: result[0].value_required, prov: result[0].value_provided, name: result[0].value_name };
+  }
+
 
   inputArray(json) {
 
@@ -75,16 +88,16 @@ class App extends React.Component {
   }
 
 
-
-  
-  ONCLICK() {
-    console.log(this.state.inputParams);
-  }
-
   render() {
 
     const uiInputs1 = this.inputArray(inputs1)
     const uiInputs2 = this.inputArray(inputs2)
+
+    const chartDataIn = this.state.outParams.graphs
+    const chartDataOut = this.state.graphData
+
+    const paramsData = this.state.outParams.params
+
 
     return (
       
@@ -101,18 +114,12 @@ class App extends React.Component {
                 <ul className="graphsSmall">
                   Small
                 </ul>
-                <ul className="graphsMedium" id='visContainer'>
-                                    
-                  </ul>
-                <ul className="graphsSmall">small</ul>
-                <ul className="graphsMedium">medium</ul>
+                <ul className="graphsMedium" id='visContainer'>                        
+                </ul>             
+                <DrawChart chartDataIn={chartDataIn} chartDataOut={chartDataOut} handleUpdateChart = {this.handleUpdateChart}/>                
             </ul>
-                <ParametersVis data={this.state.outParams.params} graphData={'graph data'}/>
+                <ParametersVis data={paramsData} chartDataOut={chartDataOut}/>
         </div>
-     
-
-  
-      
     );
   }
 }
